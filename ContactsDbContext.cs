@@ -55,7 +55,7 @@ namespace ContactsManagerAPI
             modelBuilder.Entity<Contact>()
                         .Property(c => c.PostCode).HasColumnName("post_code");
             modelBuilder.Entity<Contact>()
-                        .Property(c => c.EmailAddress).HasColumnName("email_address");
+                        .Property(c => c.EmailAddress).HasColumnName("email_adddress");
             modelBuilder.Entity<Contact>()
                         .Property(c => c.PhoneNo).HasColumnName("phone_no");
             modelBuilder.Entity<Contact>()
@@ -71,15 +71,16 @@ namespace ContactsManagerAPI
                         .Property(c => c.LastModifiedAt).HasColumnName("last_modified_at")
                         .HasDefaultValueSql("now()");
 
-            modelBuilder.Entity<Customer>()
-               .HasMany(c => c.Contacts)
-               .WithOne(c => c.Customer);
+            //modelBuilder.Entity<Customer>()
+            //   .HasMany(c => c.Contacts)
+            //   .WithOne(c => c.Customer);
 
 
             // Relationship Mapping: One-to-Many relationship (Customer - Contact)
             modelBuilder.Entity<Contact>()
                 .HasOne(c => c.Customer)
                 .WithMany(c => c.Contacts)
+                .HasForeignKey(c => c.CustomerId)
                 .OnDelete(DeleteBehavior.Restrict); 
 
         }

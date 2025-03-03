@@ -112,6 +112,14 @@ app.MapGet("/customers", (ContactsDbContext context) =>
 
 });
 
+app.MapGet("/customers/{id}", (Guid id,ContactsDbContext context) =>
+{
+    var customer = context.Customers.Where(c=>c.CustomerId==id).Include(c=>c.Contacts);
+
+    return Results.Ok(customer);
+
+});
+
 
 
 app.Run();

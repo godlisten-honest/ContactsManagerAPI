@@ -19,18 +19,18 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-DROP DATABASE "Contacts";
+-- DROP DATABASE "Contacts";
 --
 -- TOC entry 4801 (class 1262 OID 16551)
 -- Name: Contacts; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE "Contacts" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en-US';
+-- CREATE DATABASE "Contacts" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en-US';
 
 
 ALTER DATABASE "Contacts" OWNER TO postgres;
 
-\connect "Contacts"
+-- \connect "Contacts"
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -44,21 +44,21 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
---
--- TOC entry 4 (class 2615 OID 2200)
--- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
---
+-- --
+-- -- TOC entry 4 (class 2615 OID 2200)
+-- -- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
+-- --
 
-CREATE SCHEMA public;
+-- CREATE SCHEMA public;
 
 
 ALTER SCHEMA public OWNER TO pg_database_owner;
 
---
--- TOC entry 4802 (class 0 OID 0)
--- Dependencies: 4
--- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pg_database_owner
---
+-- --
+-- -- TOC entry 4802 (class 0 OID 0)
+-- -- Dependencies: 4
+-- -- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pg_database_owner
+-- --
 
 COMMENT ON SCHEMA public IS 'standard public schema';
 
@@ -67,10 +67,10 @@ SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
---
--- TOC entry 217 (class 1259 OID 16552)
--- Name: Contacts; Type: TABLE; Schema: public; Owner: postgres
---
+-- --
+-- -- TOC entry 217 (class 1259 OID 16552)
+-- -- Name: Contacts; Type: TABLE; Schema: public; Owner: postgres
+-- --
 
 CREATE TABLE public."Contacts" (
     contact_id uuid NOT NULL,

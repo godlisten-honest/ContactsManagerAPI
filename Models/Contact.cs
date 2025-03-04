@@ -2,9 +2,6 @@
 
 namespace ContactsManagerAPI.Models
 {
-    // ---- Customer Model Class ----
-   
-
     // ---- Contact Model Class ----
     public class Contact
     {

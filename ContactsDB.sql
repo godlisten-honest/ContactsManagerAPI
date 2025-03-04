@@ -7,42 +7,42 @@
 
 -- Started on 2025-03-02 19:07:26
 
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
+-- SET statement_timeout = 0;
+-- SET lock_timeout = 0;
+-- SET idle_in_transaction_session_timeout = 0;
+-- SET transaction_timeout = 0;
+-- SET client_encoding = 'UTF8';
+-- SET standard_conforming_strings = on;
+-- SELECT pg_catalog.set_config('search_path', '', false);
+-- SET check_function_bodies = false;
+-- SET xmloption = content;
+-- SET client_min_messages = warning;
+-- SET row_security = off;
 
 -- DROP DATABASE "Contacts";
---
--- TOC entry 4801 (class 1262 OID 16551)
--- Name: Contacts; Type: DATABASE; Schema: -; Owner: postgres
---
+-- --
+-- -- TOC entry 4801 (class 1262 OID 16551)
+-- -- Name: Contacts; Type: DATABASE; Schema: -; Owner: postgres
+-- --
 
 -- CREATE DATABASE "Contacts" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en-US';
 
 
-ALTER DATABASE "Contacts" OWNER TO postgres;
+-- ALTER DATABASE "Contacts" OWNER TO postgres;
 
 -- \connect "Contacts"
 
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
+-- SET statement_timeout = 0;
+-- SET lock_timeout = 0;
+-- SET idle_in_transaction_session_timeout = 0;
+-- SET transaction_timeout = 0;
+-- SET client_encoding = 'UTF8';
+-- SET standard_conforming_strings = on;
+-- SELECT pg_catalog.set_config('search_path', '', false);
+-- SET check_function_bodies = false;
+-- SET xmloption = content;
+-- SET client_min_messages = warning;
+-- SET row_security = off;
 
 -- --
 -- -- TOC entry 4 (class 2615 OID 2200)
@@ -52,7 +52,7 @@ SET row_security = off;
 -- CREATE SCHEMA public;
 
 
-ALTER SCHEMA public OWNER TO pg_database_owner;
+-- ALTER SCHEMA public OWNER TO pg_database_owner;
 
 -- --
 -- -- TOC entry 4802 (class 0 OID 0)
@@ -60,12 +60,12 @@ ALTER SCHEMA public OWNER TO pg_database_owner;
 -- -- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pg_database_owner
 -- --
 
-COMMENT ON SCHEMA public IS 'standard public schema';
+-- COMMENT ON SCHEMA public IS 'standard public schema';
 
 
-SET default_tablespace = '';
+-- SET default_tablespace = '';
 
-SET default_table_access_method = heap;
+-- SET default_table_access_method = heap;
 
 -- --
 -- -- TOC entry 217 (class 1259 OID 16552)

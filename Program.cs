@@ -1,7 +1,3 @@
-using ContactsManagerAPI;
-using ContactsManagerAPI.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +9,41 @@ builder.Services.AddSingleton(appSettings);
 
 builder.Services.AddDbContextPool<ContactsDbContext>(opt=>opt.UseNpgsql( appSettings.ConnectionStrings.ContactsDbContext));
 builder.Services.AddAuthorization();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = appSettings.Jwt.IdentityBaseUrl;
+        options.Audience = appSettings.Jwt.Audience;
+        options.RequireHttpsMetadata = false;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer=false,
+            ValidateAudience=false,
+            ValidateIssuerSigningKey=false
+        };
+        options.Events = new()
+        {
+            OnTokenValidated = async context =>
+            {
+                if (context.Principal?.Identity is ClaimsIdentity claimsIdentity)
+                {
+                    Claim? scopeClaim = claimsIdentity.FindFirst("scope");
+                    if (scopeClaim is not null)
+                    {
+                        claimsIdentity.RemoveClaim(scopeClaim);
+                        claimsIdentity.AddClaims(scopeClaim.Value.Split(" ").Select(s => new Claim("scope", s)).ToList());
+                    }
+                }
 
+                await Task.CompletedTask;
+            }
+        };
+    });
+
+
+
+
+builder.Services.AddCarter();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -30,7 +60,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+/*
 // fetch all contacts
 app.MapGet("/contacts", (ContactsDbContext context) => 
 { 
@@ -119,7 +149,8 @@ app.MapGet("/customers/{id}", (Guid id,ContactsDbContext context) =>
     return Results.Ok(customer);
 
 });
+*/
 
-
+app.MapCarter();
 
 app.Run();
